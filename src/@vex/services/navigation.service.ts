@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class NavigationService {
 
-  items: any[] = [];
+  items: NavigationItem[] = [];
 
   private _openChangeSubject = new Subject<NavigationDropdown>();
   openChange$ = this._openChangeSubject.asObservable();
@@ -19,14 +19,14 @@ export class NavigationService {
   }
 
   isLink(item: NavigationItem): item is NavigationLink {
-    return item.role === 1;
+    return item.type === 'link';
   }
 
   isDropdown(item: NavigationItem): item is NavigationDropdown {
-    return item.role === 1;
+    return item.type === 'dropdown';
   }
 
   isSubheading(item: NavigationItem): item is NavigationSubheading {
-    return item.role === 0 || item.submenu ===null;
+    return item.type === 'subheading';
   }
 }

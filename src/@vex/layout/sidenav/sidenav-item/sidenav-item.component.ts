@@ -19,7 +19,7 @@ export class SidenavItemComponent implements OnInit, OnChanges {
 
   @Input() item: NavigationItem;
   @Input() level: number;
-  isOpen: boolean = false;
+  isOpen: boolean;
   isActive: boolean;
 
   isLink = this.navigationService.isLink;
@@ -90,28 +90,28 @@ export class SidenavItemComponent implements OnInit, OnChanges {
   }
 
   isChildrenOf(parent: NavigationDropdown, item: NavigationDropdown) {
-    if (parent.submenu.indexOf(item) !== -1) {
+    if (parent.children.indexOf(item) !== -1) {
       return true;
     }
 
-    return parent.submenu
+    return parent.children
       .filter(child => this.isDropdown(child))
       .some(child => this.isChildrenOf(child as NavigationDropdown, item));
   }
 
   hasActiveChilds(parent: NavigationDropdown) {
-    return parent.submenu.some(child => {
+    return parent.children.some(child => {
       if (this.isDropdown(child)) {
         return this.hasActiveChilds(child);
       }
 
-      if (this.isLink(child) && !this.isFunction(child.path)) {
-        return this.router.isActive(child.path as string, false);
+      if (this.isLink(child) && !this.isFunction(child.route)) {
+        return this.router.isActive(child.route as string, false);
       }
     });
   }
 
-  isFunction(prop: NavigationLink['path']) {
+  isFunction(prop: NavigationLink['route']) {
     return prop instanceof Function;
   }
 }

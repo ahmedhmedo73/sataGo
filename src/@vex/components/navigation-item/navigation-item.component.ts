@@ -33,17 +33,17 @@ export class NavigationItemComponent implements OnInit {
 
   hasActiveChilds(parent: NavigationItem): boolean {
     if (this.isLink(parent)) {
-      return this.router.isActive(parent.path as string, true);
+      return this.router.isActive(parent.route as string, true);
     }
 
     if (this.isDropdown(parent) || this.isSubheading(parent)) {
-      return parent.submenu.some(child => {
+      return parent.children.some(child => {
         if (this.isDropdown(child)) {
           return this.hasActiveChilds(child);
         }
 
-        if (this.isLink(child) && !this.isFunction(child.path)) {
-          return this.router.isActive(child.path as string, true);
+        if (this.isLink(child) && !this.isFunction(child.route)) {
+          return this.router.isActive(child.route as string, true);
         }
 
         return false;
@@ -53,7 +53,7 @@ export class NavigationItemComponent implements OnInit {
     return false;
   }
 
-  isFunction(prop: NavigationLink['path']) {
+  isFunction(prop: NavigationLink['route']) {
     return prop instanceof Function;
   }
 }

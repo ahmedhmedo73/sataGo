@@ -2,35 +2,32 @@ export type NavigationItem = NavigationLink | NavigationDropdown | NavigationSub
 
 export interface NavigationLink {
   type: 'link';
-  path: string | any;
+  route: string | any;
   fragment?: string;
-  title: string;
-  role:number;
-  id:number;
+  label: string;
   icon?: string;
-  extralink?: { exact: boolean };
-  submenu: Array<NavigationLink | NavigationDropdown>;
-  
-  
+  routerLinkActiveOptions?: { exact: boolean };
+  badge?: {
+    value: string;
+    bgClass: string;
+    textClass: string;
+  };
 }
 
 export interface NavigationDropdown {
   type: 'dropdown';
-  title: string;
+  label: string;
   icon?: string;
-  role:number;
-  id:number;
-  path: string | any;
-  submenu: Array<NavigationLink | NavigationDropdown>;
-  
+  children: Array<NavigationLink | NavigationDropdown>;
+  badge?: {
+    value: string;
+    bgClass: string;
+    textClass: string;
+  };
 }
 
 export interface NavigationSubheading {
   type: 'subheading';
-  title: string;
-  role:number;
-  id:number;
-  path: string | any;
-  submenu: Array<NavigationLink | NavigationDropdown>;
-  icon?: string;
+  label: string;
+  children: Array<NavigationLink | NavigationDropdown>;
 }

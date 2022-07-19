@@ -9,9 +9,6 @@ import { Observable, of } from 'rxjs';
 import { UserMenuComponent } from '../../components/user-menu/user-menu.component';
 import { MatDialog } from '@angular/material/dialog';
 import { SearchModalComponent } from '../../components/search-modal/search-modal.component';
-import { ServiceService } from 'src/app/service.service';
-
-
 
 @Component({
   selector: 'vex-sidenav',
@@ -30,27 +27,15 @@ export class SidenavComponent implements OnInit {
 
   userMenuOpen$: Observable<boolean> = of(false);
 
-  sideNav = this.navigationService.items;
-  
+  items = this.navigationService.items;
 
   constructor(private navigationService: NavigationService,
               private layoutService: LayoutService,
               private configService: ConfigService,
               private readonly popoverService: PopoverService,
-              private readonly dialog: MatDialog,
-              private _NewsService:ServiceService) { }
+              private readonly dialog: MatDialog) { }
 
   ngOnInit() {
-
-    this._NewsService.getNews().subscribe( 
-      data=> {
-        this.sideNav = data
-        console.log("shawki")
-        console.log(this.sideNav)
-      }
-       )  
-
-
   }
 
   collapseOpenSidenav() {
@@ -66,7 +51,7 @@ export class SidenavComponent implements OnInit {
   }
 
   trackByRoute(index: number, item: NavigationLink): string {
-    return item.path;
+    return item.route;
   }
 
   openProfileMenu(origin: HTMLDivElement): void {
