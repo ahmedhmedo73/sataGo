@@ -1,0 +1,180 @@
+<div class="w-full h-full bg-pattern flex flex-col items-center justify-center custwidthparent">
+
+    <div class="custwidth"> 
+      <div class="photo ">
+        <img class="img-fluid pt-4" src="assets/img/logo.png">
+      </div>
+      <div class="text-center mt-2">
+        <h2 class="title mt-0">تسجيل الوكيل</h2>
+        
+      </div>
+  
+      <form #agentData="ngForm" [formGroup]="formAgent" (ngSubmit)="displayForm()">
+        <div class="row pt-5">
+            <div class="col-md-3 ">
+              <div class="form-group px-1">
+                <label class="form-label float-right">اسم الوكيل *</label>
+                <input class="form-control " formControlName="nameAgent" type="text">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('nameAgent').touched &&
+                 !formAgent.get('nameAgent').dirty ">برجاء ادخال اسم الوكيل
+                </span>
+                 </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group px-1">
+                <label class="form-label float-right">عدد الفروع *</label>
+                <input class="form-control" type="number" formControlName="numBranch">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('numBranch').touched &&
+                 !formAgent.get('numBranch').dirty ">برجاء ادخال عدد الفروع
+                </span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group px-1">
+                <label class="form-label float-right">المحافظة *</label>
+                <input class="form-control" type="text" formControlName="governate">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('governate').touched &&
+                 !formAgent.get('governate').dirty ">برجاء ادخال المحافظة
+                </span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> المنطقة *</label>
+                <input class="form-control" type="text" formControlName="region">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('region').touched &&
+                 !formAgent.get('region').dirty ">برجاء ادخال المنطقة
+                </span>
+              </div>
+            </div>
+          </div>
+      
+          <div class="row py-2">
+            <div class="col-md-4 ">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> العنوان تفصيلى *</label>
+                <input class="form-control" type="text" formControlName="address">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('address').touched &&
+                 !formAgent.get('address').dirty ">برجاء ادخال العنوان التفصيلى
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> رقم الهاتف *</label>
+                <input class="form-control" type="number" formControlName="numPhone1">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('numPhone1').touched &&
+                 !formAgent.get('numPhone1').dirty ">برجاء ادخال رقم الهاتف
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> رقم هاتف اخر *</label>
+                <input class="form-control" type="number" formControlName="numPhone2">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('numPhone2').touched &&
+                 !formAgent.get('numPhone2').dirty ">برجاء ادخال رقم الهاتف
+                </span>
+              </div>
+            </div>
+            
+          </div>
+      
+          
+          <div class="row py-2">
+            <div class="col-md-4 ">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> الاسم الاول *</label>
+                <input class="form-control" type="text" formControlName="firstName">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('firstName').touched &&
+                 !formAgent.get('firstName').dirty ">برجاء ادخال الاسم
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> الاسم الثانى *</label>
+                <input class="form-control" type="text" formControlName="secondName">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('secondName').touched &&
+                 !formAgent.get('secondName').dirty ">برجاء ادخال الاسم
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> الدور او الوظيفة *</label>
+                <input class="form-control" type="text" formControlName="job">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('job').touched &&
+                 !formAgent.get('job').dirty ">برجاء ادخال الوظيفة
+                </span>
+              </div>
+            </div>
+            
+          </div>
+      
+          
+          <div class="row py-2">
+            <div class="col-md-3 ">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> الويب سايت *</label>
+                <input class="form-control" type="text" formControlName="weSite">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('weSite').touched &&
+                 !formAgent.get('weSite').dirty ">برجاء ادخال الويب سايت
+                </span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> الموقع *</label>
+                <input class="form-control" type="text" formControlName="location">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('location').touched &&
+                 !formAgent.get('location').dirty ">برجاء ادخال الموقع
+                </span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group px-1">
+                <label class="form-label float-right"> الايميل *</label>
+                <input class="form-control" type="email" formControlName="email">
+                <span class="text-danger"
+                *ngIf=" formAgent.get('email').touched &&
+                 !formAgent.get('email').dirty ">برجاء ادخال الايميل
+                </span>
+              </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group px-1">
+                  <label class="form-label float-right"> عدد السيارات *</label>
+                  <input class="form-control" type="number" formControlName="numCars">
+                  <span class="text-danger"
+                *ngIf=" formAgent.get('numCars').touched &&
+                 !formAgent.get('numCars').dirty ">برجاء ادخال عدد السيارات
+                </span>
+                </div>
+              </div>
+            
+          </div>
+          
+      
+
+      <div class="text-center py-3">
+        <button  class="btn btn-success w-25 btregester" [disabled]="formAgent.invalid" (click)="test()">تسجيل</button>
+      
+        <!-- <h1>{{agentData.value|json}}</h1> -->
+      </div>
+    </form>
+    </div>
+    </div>
+  

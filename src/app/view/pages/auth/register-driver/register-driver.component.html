@@ -1,0 +1,188 @@
+<div class="w-full h-full bg-pattern flex flex-col items-center justify-center custwidthparent">
+
+    <div class="custwidth"> 
+      <div class="photo">
+        <img class="img-fluid" src="assets/img/logo.png">
+      </div>
+      <div class="text-center mt-2">
+        <h2 class="title mt-0">تسجيل السائق</h2>
+        
+      </div>
+  
+      <form #driverData="ngForm" [formGroup]="formDriver">
+      <div class="row pt-5">
+        <div class="col-md-3 ">
+          <div class="form-group px-1">
+            <label class="form-label float-right">الاسم الاول *</label>
+            <input class="form-control" type="text" formControlName="firstName">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('firstName').touched &&
+                 !formDriver.get('firstName').dirty ">برجاء ادخال الاسم 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group px-1">
+            <label class="form-label float-right">الاسم الثانى *</label>
+            <input class="form-control" type="text" formControlName="secondName">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('secondName').touched &&
+                 !formDriver.get('secondName').dirty ">برجاء ادخال الاسم 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group px-1">
+            <label class="form-label float-right"> محل الاقامة *</label>
+            <input class="form-control" type="text" formControlName="residence">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('residence').touched &&
+                 !formDriver.get('residence').dirty ">برجاء ادخال محل الاقامة 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group px-1">
+            <label class="form-label float-right"> الايميل *</label>
+            <input class="form-control" type="email" formControlName="email">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('email').touched &&
+                 !formDriver.get('email').dirty ">برجاء ادخال الايميل 
+                </span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row py-2">
+        <div class="col-md-3 ">
+          <div class="form-group px-1">
+            <label class="form-label float-right"> رقم الهاتف *</label>
+            <input class="form-control" type="number" formControlName="numPhone1">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('numPhone1').touched &&
+                 !formDriver.get('numPhone1').dirty ">برجاء ادخال الهاتف 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group px-1">
+            <label class="form-label float-right"> رقم هاتف اخر *</label>
+            <input class="form-control" type="number" formControlName="numPhone2">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('numPhone2').touched &&
+                 !formDriver.get('numPhone2').dirty ">برجاء ادخال الهاتف 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group px-1">
+            <label class="form-label float-right"> المحافظة *</label>
+            <input class="form-control" type="text" formControlName="covernate">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('covernate').touched &&
+                 !formDriver.get('covernate').dirty ">برجاء ادخال المحافظة 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group px-1">
+            <label class="form-label float-right">المنطقة*</label>
+            <input class="form-control" type="text" formControlName="region">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('region').touched &&
+                 !formDriver.get('region').dirty ">برجاء ادخال المنطقة 
+                </span>
+          </div>
+        </div>
+      </div>
+  
+      
+      <div class="row py-2">
+        <div class="col-md-6 ">
+          <div class="form-group px-1">
+            <label class="form-label float-right">العنوان تفصيليا *</label>
+            <input class="form-control" type="text" formControlName="address">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('address').touched &&
+                 !formDriver.get('address').dirty ">برجاء ادخال العنوان 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group px-1">
+            <label class="form-label float-right">المؤهل *</label>
+            <input class="form-control" type="text" formControlName="degree">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('degree').touched &&
+                 !formDriver.get('degree').dirty ">برجاء ادخال المؤهل
+                </span>
+          </div>
+        </div>
+        
+      </div>
+  
+      
+      <div class="row py-2">
+        <div class="col-md-3 ">
+          <div class="form-group px-1">
+            <label class="form-label float-right">نوع السيارة *</label>
+            <select class="form-select" formControlName="carType" >
+              <option value="hndai" selected>هيونداى</option>
+              <option value="kia">كيا</option>
+              
+            </select>
+            <span class="text-danger"
+                *ngIf=" formDriver.get('carType').touched &&
+                 !formDriver.get('carType').dirty ">برجاء اختيار نوع السيارة 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group px-1">
+            <label class="form-label float-right">اسم السيارة *</label>
+            <select class="form-select" formControlName="carName"  >
+              <option selected>فيرنل</option>
+              <option value="1">سبورتاج</option>
+              
+            </select>
+            <span class="text-danger"
+                *ngIf=" formDriver.get('carName').touched &&
+                 !formDriver.get('carName').dirty ">برجاءاختيار اسم السيارة 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group px-1">
+            <label class="form-label float-right">فئة السيارة *</label>
+            <select class="form-select" formControlName="carCategory" >
+              <option selected>سيدان</option>
+              <option value="1">كوبية</option>
+              
+            </select>
+            <span class="text-danger"
+                *ngIf=" formDriver.get('carCategory').touched &&
+                 !formDriver.get('carCategory').dirty ">برجاء اختيار الفئة 
+                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group px-1">
+            <label class="form-label float-right">الموديل *</label>
+            <input class="form-control" type="text" formControlName="model">
+            <span class="text-danger"
+                *ngIf=" formDriver.get('model').touched &&
+                 !formDriver.get('model').dirty ">برجاء ادخال الموديل 
+                </span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center py-3">
+        <button [disabled]="formDriver.invalid" class="btn btn-success w-25 btregester"  routerLink="/login">تسجيل</button>
+      
+      </div>
+
+    </form>
+
+    </div>
+    </div>
+  

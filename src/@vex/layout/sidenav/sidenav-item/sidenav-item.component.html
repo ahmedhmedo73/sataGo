@@ -1,0 +1,55 @@
+<!-- <a 
+   
+ 
+   class="vex-sidenav-item"
+   matRipple
+   matRippleColor="var(--sidenav-item-ripple-color)"
+   routerLinkActive="vex-sidenav-item--active">
+  <span class="vex-sidenav-item__label">{{ item.title }}<i class="{{item.icon}}"></i></span>
+  
+</a> -->
+
+<!-- <a *ngIf="isLink(item) "
+   
+   
+   class="vex-sidenav-item"
+   matRipple
+   matRippleColor="var(--sidenav-item-ripple-color)"
+   routerLinkActive="vex-sidenav-item--active">
+  <span class="vex-sidenav-item__label">{{ item.title }}</span>
+  </a> -->
+
+<!-- <div (click)="item.path()"
+     *ngIf="isLink(item) && isFunction(item.path)"
+     class="vex-sidenav-item"
+     matRipple
+     matRippleColor="var(--sidenav-item-ripple-color)"
+     routerLinkActive="vex-sidenav-item--active">
+  <span class="vex-sidenav-item__label">{{ item.id }}</span>
+  
+</div> -->
+
+<ng-container *ngIf="isDropdown(item)">
+  <div (click)="toggleOpen()"
+       [class.vex-sidenav-item--active]="isOpen || isActive"
+       [class.vex-sidenav-item--open]="isOpen"
+       class="vex-sidenav-item"
+       matRipple
+       matRippleColor="var(--sidenav-item-ripple-color)">
+    <span class="vex-sidenav-item__label">{{ item.title }}</span>
+   
+    <mat-icon class="vex-sidenav-item__dropdown-icon" svgIcon="mat:keyboard_arrow_right"></mat-icon>
+  </div>
+  <div [@dropdown]="isOpen" class="vex-sidenav-item__dropdown">
+    <vex-sidenav-item *ngFor="let subItem of item.submenu" [item]="subItem" [level]="level + 1"></vex-sidenav-item>
+  </div>
+</ng-container>
+
+ 
+<ng-container *ngIf="isSubheading(item)">
+
+  <vex-sidenav-item *ngFor="let subItem of item.submenu" [item]="subItem" [level]="0"></vex-sidenav-item>
+  <div class="vex-sidenav-subheading text-danger">{{ item.title }}</div>
+  
+</ng-container>
+

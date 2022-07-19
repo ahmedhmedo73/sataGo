@@ -1,0 +1,180 @@
+<div class="w-full h-full bg-pattern flex flex-col items-center justify-center custwidthparent">
+
+  <!-- <div class="custwidth"> 
+    <div class="photo">
+      <img class="img-fluid" src="assets/img/logo.png">
+    </div>
+    <div class="text-center mt-2">
+      <h2 class="title mt-0">تسجيل سائق</h2>
+      
+    </div>
+
+    <div class="row pt-5">
+      <div class="col-md-3 ">
+        <div class="form-group px-1">
+          <label class="form-label float-right">الاسم الاول *</label>
+          <input class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group px-1">
+          <label class="form-label float-right">الاسم الثانى *</label>
+          <input class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group px-1">
+          <label class="form-label float-right"> محل الاقامة *</label>
+          <input class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group px-1">
+          <label class="form-label float-right"> الايميل *</label>
+          <input class="form-control" type="email">
+        </div>
+      </div>
+    </div>
+
+    <div class="row py-2">
+      <div class="col-md-3 ">
+        <div class="form-group px-1">
+          <label class="form-label float-right"> رقم الهاتف *</label>
+          <input class="form-control" type="number">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group px-1">
+          <label class="form-label float-right"> رقم هاتف اخر *</label>
+          <input class="form-control" type="number">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group px-1">
+          <label class="form-label float-right"> المحافظة *</label>
+          <input class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group px-1">
+          <label class="form-label float-right">المنطقة*</label>
+          <input class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="row py-2">
+      <div class="col-md-6 ">
+        <div class="form-group px-1">
+          <label class="form-label float-right">العنوان تفصيليا *</label>
+          <input class="form-control" type="number">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group px-1">
+          <label class="form-label float-right">المؤهل *</label>
+          <input class="form-control" type="number">
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <div class="row py-2">
+      <div class="col-md-3 ">
+        <div class="form-group px-1">
+          <label class="form-label float-right">نوع السيارة *</label>
+          <select class="form-select"  >
+            <option selected>هيونداى</option>
+            <option value="1">كيا</option>
+            
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group px-1">
+          <label class="form-label float-right">اسم السيارة *</label>
+          <select class="form-select"  >
+            <option selected>فيرنل</option>
+            <option value="1">سبورتاج</option>
+            
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group px-1">
+          <label class="form-label float-right">فئة السيارة *</label>
+          <select class="form-select"  >
+            <option selected>سيدان</option>
+            <option value="1">كوبية</option>
+            
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group px-1">
+          <label class="form-label float-right">الموديل *</label>
+          <input class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+    <div class="text-center py-3">
+      <button class="btn btn-success w-25 btregester">تسجيل</button>
+    
+    </div>
+  </div> -->
+  
+  <div @fadeInUp class="card overflow-hidden w-full max-w-xs ">
+    <div class="p-6 pb-0 flex flex-col items-center justify-center">
+      <div class="fill-current text-center">
+        <img class="w-16" src="assets/img/logo.png">
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <h2 class="title m-0">تسجيل سائق</h2>
+      
+    </div>
+
+    <div [formGroup]="form" class="p-6 flex flex-col gap-4 flex-auto flex flex-col ">
+      
+      
+      <div>
+        
+        
+
+        <mat-form-field class="flex-1">
+          <mat-label>Password</mat-label>
+          <input [type]="inputType" formControlName="password" matInput required>
+          <button (click)="toggleVisibility()" mat-icon-button matSuffix matTooltip="Toggle Visibility" type="button">
+            <mat-icon *ngIf="visible" svgIcon="mat:visibility"></mat-icon>
+            <mat-icon *ngIf="!visible" svgIcon="mat:visibility_off"></mat-icon>
+          </button>
+          <mat-hint>Click the eye to toggle visibility</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="flex-1">
+          <mat-label>Password (Confirm)</mat-label>
+          <input [type]="inputType" formControlName="passwordConfirm" matInput required>
+          <button (click)="toggleVisibility()" mat-icon-button matSuffix matTooltip="Toggle Visibility" type="button">
+            <mat-icon *ngIf="visible" svgIcon="mat:visibility"></mat-icon>
+            <mat-icon *ngIf="!visible" svgIcon="mat:visibility_off"></mat-icon>
+          </button>
+          <mat-hint>Please repeat your password from above</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <mat-checkbox class="caption">I accept the <a>terms and conditions.</a></mat-checkbox>
+      </div>
+      <button (click)="send()" color="primary" mat-raised-button type="button">
+        CREATE ACCOUNT
+      </button>
+      <p class="text-secondary text-center">
+        Already have an account?<br/>
+        <a [routerLink]="['/login']">Sign in here</a>
+      </p>
+    </div>
+  </div> 
+</div>
