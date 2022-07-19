@@ -31,6 +31,7 @@ export class SidenavItemComponent implements OnInit, OnChanges {
   @Input() item: NavigationItem;
   @Input() level: number;
   isOpen: boolean;
+  isOpenSubmenu: boolean = false;
   isActive: boolean;
 
   isLink = this.navigationService.isLink;
@@ -77,6 +78,11 @@ export class SidenavItemComponent implements OnInit, OnChanges {
 
   toggleOpen() {
     this.isOpen = !this.isOpen;
+    this.navigationService.triggerOpenChange(this.item as NavigationDropdown);
+    this.cd.markForCheck();
+  }
+  toggleOpenSubmenu() {
+    this.isOpenSubmenu = !this.isOpenSubmenu;
     this.navigationService.triggerOpenChange(this.item as NavigationDropdown);
     this.cd.markForCheck();
   }
