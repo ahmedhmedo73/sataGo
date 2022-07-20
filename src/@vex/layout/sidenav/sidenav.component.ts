@@ -36,7 +36,7 @@ export class SidenavComponent implements OnInit {
 
   userMenuOpen$: Observable<boolean> = of(false);
 
-  items = this.navigationService.items;
+  items = JSON.parse(localStorage.getItem("MenuData"));
 
   constructor(
     private navigationService: NavigationService,

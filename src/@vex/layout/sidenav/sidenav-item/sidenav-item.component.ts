@@ -30,7 +30,7 @@ import { NavigationService } from "../../../services/navigation.service";
 export class SidenavItemComponent implements OnInit, OnChanges {
   @Input() item: NavigationItem;
   @Input() level: number;
-  isOpen: boolean;
+  isOpenSubheading: boolean = false;
   isOpenSubmenu: boolean = false;
   isActive: boolean;
 
@@ -77,12 +77,12 @@ export class SidenavItemComponent implements OnInit, OnChanges {
   }
 
   toggleOpen() {
-    this.isOpen = !this.isOpen;
+    this.isOpenSubmenu = !this.isOpenSubmenu;
     this.navigationService.triggerOpenChange(this.item as NavigationDropdown);
     this.cd.markForCheck();
   }
-  toggleOpenSubmenu() {
-    this.isOpenSubmenu = !this.isOpenSubmenu;
+  toggleOpenSubheading() {
+    this.isOpenSubheading = !this.isOpenSubheading;
     this.navigationService.triggerOpenChange(this.item as NavigationDropdown);
     this.cd.markForCheck();
   }
@@ -97,7 +97,7 @@ export class SidenavItemComponent implements OnInit, OnChanges {
     }
 
     if (this.item !== item) {
-      this.isOpen = false;
+      this.isOpenSubmenu = false;
       this.cd.markForCheck();
     }
   }
@@ -105,12 +105,12 @@ export class SidenavItemComponent implements OnInit, OnChanges {
   onRouteChange() {
     if (this.hasActiveChilds(this.item as NavigationDropdown)) {
       this.isActive = true;
-      this.isOpen = true;
+      this.isOpenSubmenu = true;
       this.navigationService.triggerOpenChange(this.item as NavigationDropdown);
       this.cd.markForCheck();
     } else {
       this.isActive = false;
-      this.isOpen = false;
+      this.isOpenSubmenu = false;
       this.navigationService.triggerOpenChange(this.item as NavigationDropdown);
       this.cd.markForCheck();
     }

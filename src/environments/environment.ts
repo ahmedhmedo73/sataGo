@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false ,
-  endpoint: 'http://satafood.codesroots.com:3000/api' ,
-  photoPath: 'http://satafood.codesroots.com:3000'
+  production: false,
+  endpoint: "http://satafood.codesroots.com:3000/api",
+  photoPath: "http://satafood.codesroots.com:3000",
 };
 
 /*

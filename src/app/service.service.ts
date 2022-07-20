@@ -10,13 +10,13 @@ import { environment } from "src/environments/environment";
 export class ServiceService {
   constructor(private http: HttpClient) {}
 
-  getNews(): Observable<any> {
-    return this.http.get(
-      "http://satafood.codesroots.com:3000/api/mainmenu/indexbyrole"
-    );
+  getNews() {
+    return this.http
+      .get(`${environment.endpoint}/mainmenu/indexbyrole`)
+      .toPromise();
   }
 
-  login(body) {
+  login(body: any) {
     return this.http.post(environment.endpoint + "/login", body);
   }
 }

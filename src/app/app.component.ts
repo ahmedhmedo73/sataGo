@@ -131,81 +131,82 @@ export class AppComponent {
     /**
      * Add your own routes here
      */
-    this.navigationService.items = [
-      {
-        type: "subheading",
-        class: "has-arrow",
-        color: "",
-        extralink: false,
-        icon: "mat:update",
-        id: 715,
-        path: "",
-        role: 1,
-        roles: [
-          {
-            created: "2017-09-18T09:03:28.000Z",
-            description: "null",
-            id: 1,
-            modified: "2017-09-18T09:03:28.000Z",
-            name: "Admin",
-            parent_id: 0,
-            registration_allowed: 0,
-          },
-        ],
-        sort: 0,
-        sub: 0,
-        submenu: [
-          {
-            type: "dropdown",
-            class: "has-arrow",
-            color: "",
-            extralink: 0,
-            icon: "mat:book",
-            id: 715,
-            path: "",
-            role: 1,
-            sort: 0,
-            sub: 0,
-            submenu: [
-              {
-                type: "link",
-                id: 715,
-                sort: 0,
-                sub: 0,
-                title: "عرض",
-                title_en: "",
-                role: 1,
-                path: "/documentation/introduction",
-                fragment: "introduction",
-                class: "has-arrow",
-                extralink: 0,
-                color: "",
-                routerLinkActiveOptions: { exact: true },
-              },
-              {
-                type: "link",
-                id: 715,
-                sort: 0,
-                sub: 0,
-                title: "إضافة",
-                title_en: "",
-                role: 1,
-                path: "/documentation/introduction",
-                fragment: "introduction",
-                class: "has-arrow",
-                extralink: 0,
-                color: "",
-                routerLinkActiveOptions: { exact: true },
-              },
-            ],
-            title: "المنيو",
-            title_en: "",
-          },
-        ],
-        title: "الإعدادات العامة",
-        title_en: "",
-      },
-    ];
+
+    // this.navigationService.items = [
+    //   {
+    //     type: "subheading",
+    //     class: "has-arrow",
+    //     color: "",
+    //     extralink: false,
+    //     icon: "mat:update",
+    //     id: 715,
+    //     path: "",
+    //     role: 1,
+    //     roles: [
+    //       {
+    //         created: "2017-09-18T09:03:28.000Z",
+    //         description: "null",
+    //         id: 1,
+    //         modified: "2017-09-18T09:03:28.000Z",
+    //         name: "Admin",
+    //         parent_id: 0,
+    //         registration_allowed: 0,
+    //       },
+    //     ],
+    //     sort: 0,
+    //     sub: 0,
+    //     submenu: [
+    //       {
+    //         type: "dropdown",
+    //         class: "has-arrow",
+    //         color: "",
+    //         extralink: 0,
+    //         icon: "mat:book",
+    //         id: 715,
+    //         path: "",
+    //         role: 1,
+    //         sort: 0,
+    //         sub: 0,
+    //         submenu: [
+    //           {
+    //             type: "link",
+    //             id: 715,
+    //             sort: 0,
+    //             sub: 0,
+    //             title: "عرض",
+    //             title_en: "",
+    //             role: 1,
+    //             path: "/documentation/introduction",
+    //             fragment: "introduction",
+    //             class: "has-arrow",
+    //             extralink: 0,
+    //             color: "",
+    //             routerLinkActiveOptions: { exact: true },
+    //           },
+    //           {
+    //             type: "link",
+    //             id: 715,
+    //             sort: 0,
+    //             sub: 0,
+    //             title: "إضافة",
+    //             title_en: "",
+    //             role: 1,
+    //             path: "/documentation/introduction",
+    //             fragment: "introduction",
+    //             class: "has-arrow",
+    //             extralink: 0,
+    //             color: "",
+    //             routerLinkActiveOptions: { exact: true },
+    //           },
+    //         ],
+    //         title: "المنيو",
+    //         title_en: "",
+    //       },
+    //     ],
+    //     title: "الإعدادات العامة",
+    //     title_en: "",
+    //   },
+    // ];
 
     // this.navigationService.items = [
     //   {
@@ -752,5 +753,11 @@ export class AppComponent {
     //   //   icon: 'mat:settings'
     //   // }
     // ];
+  }
+  async ngOnInit(): Promise<void> {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    // this.navigationService.items =
+    //   (await this.navigationService.getSidenav()) as any;
   }
 }

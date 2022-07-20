@@ -47,17 +47,13 @@
 <ng-container *ngIf="isDropdown(item)">
   <div
     (click)="toggleOpen()"
-    [class.vex-sidenav-item--active]="isOpen || isActive"
-    [class.vex-sidenav-item--open]="isOpen"
+    [class.vex-sidenav-item--active]="isOpenSubmenu || isActive"
+    [class.vex-sidenav-item--open]="isOpenSubmenu"
     class="vex-sidenav-item"
     matRipple
     matRippleColor="var(--sidenav-item-ripple-color)"
   >
-    <mat-icon
-      *ngIf="level === 0"
-      [svgIcon]="item.icon"
-      class="vex-sidenav-item__icon"
-    ></mat-icon>
+    <mat-icon [svgIcon]="item.icon" class="vex-sidenav-item__icon"></mat-icon>
     <span class="vex-sidenav-item__label">{{ item.title }} </span>
     <span
       *ngIf="item.badge"
@@ -70,7 +66,7 @@
       svgIcon="mat:keyboard_arrow_right"
     ></mat-icon>
   </div>
-  <div [@dropdown]="isOpen" class="vex-sidenav-item__dropdown">
+  <div [@dropdown]="isOpenSubmenu" class="vex-sidenav-item__dropdown">
     <vex-sidenav-item
       *ngFor="let subItem of item.submenu"
       [item]="subItem"
@@ -81,25 +77,21 @@
 
 <ng-container *ngIf="isSubheading(item)">
   <div
-    (click)="toggleOpenSubmenu()"
-    [class.vex-sidenav-item--active]="isOpenSubmenu || isActive"
-    [class.vex-sidenav-item--open]="isOpenSubmenu"
+    (click)="toggleOpenSubheading()"
+    [class.vex-sidenav-item--active]="isOpenSubheading || isActive"
+    [class.vex-sidenav-item--open]="isOpenSubheading"
     class="vex-sidenav-item"
     matRipple
     matRippleColor="var(--sidenav-item-ripple-color)"
   >
-    <mat-icon
-      *ngIf="level === 0"
-      [svgIcon]="item.icon"
-      class="vex-sidenav-item__icon"
-    ></mat-icon>
+    <mat-icon [svgIcon]="item.icon" class="vex-sidenav-item__icon"></mat-icon>
     <div class="vex-sidenav-item__label">{{ item.title }}</div>
     <mat-icon
       class="vex-sidenav-item__dropdown-icon"
       svgIcon="mat:keyboard_arrow_right"
     ></mat-icon>
   </div>
-  <div [@dropdown]="isOpenSubmenu" class="vex-sidenav-item__dropdown">
+  <div [@dropdown]="isOpenSubheading" class="vex-sidenav-item__dropdown">
     <vex-sidenav-item
       *ngFor="let subItem of item.submenu"
       [item]="subItem"
